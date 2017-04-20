@@ -34,7 +34,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 */
 var numero = Math.random();
 var time = new Date();
-var hora = time.getHours;
+var hora = time.getUTCHours;
 var uno = 1;
 bot.dialog('/', intents);   
 intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '.concat(uno)));
