@@ -47,7 +47,7 @@ intents.matches('Saludos', [
 }
 ]); 
 intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '));
-intents.onDefault(builder.DialogAction.send('Hola '.concat(hora)));
+intents.onDefault(builder.DialogAction.send('Hola '));
  
 if (useEmulator) {
     var restify = require('restify');
