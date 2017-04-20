@@ -38,11 +38,11 @@ var hora = time.getUTCHours;
 var uno = 1;
 bot.dialog('/', intents);
 intents.matches('Saludos', [
-    function (session, args){
+    function (session){
         if(numero < 5){
-    builder.DialogAction.send('Saludos invocadores! ')
+    session.send('Saludos invocadores! ')
 }else{
-    builder.DialogAction.send('En que puedo ayudarle?')
+    session.send('En que puedo ayudarle?')
 }
 }
 ]); 
