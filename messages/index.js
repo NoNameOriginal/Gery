@@ -32,15 +32,14 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
-
+var time = new Date();
 bot.dialog('/', intents);
 intents.matches('Saludos', [
 
     function (session){
         var numero = Math.floor(Math.random() * (10 - 1)) + 1;
-        var time = new Date();
         var hora = time.getHours;
-        if(hora > 12){
+        if(hora < 12){
     session.send('Buenos Dias')
 }else{
     session.send('Buenas noches')
