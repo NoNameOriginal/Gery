@@ -32,22 +32,24 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
+
 var time = new Date();
+var hora = time.getUTCHours;
+var uno = 1;
 bot.dialog('/', intents);
 intents.matches('Saludos', [
 
     function (session){
         var numero = Math.floor(Math.random() * (10 - 1)) + 1;
-        var hora = time.getHours;
-        if(hora < 12){
-    session.send('Buenos Dias')
+        if(numero < 5){
+    session.send('Hola, En que puedo servirle?')
 }else{
-    session.send('Buenas noches')
+    session.send('En que puedo ayudarle?')
 }
 }
 ]); 
-intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '));
-intents.onDefault(builder.DialogAction.send('Hola '));
+intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '.concat(uno)));
+intents.onDefault(builder.DialogAction.send('Hola '.concat(hora)));
  
 if (useEmulator) {
     var restify = require('restify');
