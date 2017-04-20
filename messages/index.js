@@ -32,11 +32,13 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
+var numero = Math.random();
+var time = new Date();
+var hora = time.getHours
 bot.dialog('/', intents);   
-intents.matches('matriculas', builder.DialogAction.send('Creating Alarm'));
-intents.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only create & delete alarms."));
+intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '));
+intents.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only create & delete alarms.", hora));
  
-
 if (useEmulator) {
     var restify = require('restify');
     var server = restify.createServer();
