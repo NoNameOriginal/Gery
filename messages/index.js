@@ -35,9 +35,10 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 var numero = Math.random();
 var time = new Date();
 var hora = time.getHours;
+var uno = 1;
 bot.dialog('/', intents);   
-intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '));
-intents.onDefault(builder.DialogAction.send(hora.toString, "Hola "));
+intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: ', uno));
+intents.onDefault(builder.DialogAction.send(hora.toString, 'Hola '));
  
 if (useEmulator) {
     var restify = require('restify');
