@@ -41,10 +41,11 @@ intents.matches('Saludos', [
 
     function (session){
         var numero = Math.floor(Math.random() * (10 - 1)) + 1;
-        if(numero < 5){
-    session.send('Saludos invocadores! ')
+        var hora = time.getHours;
+        if(hora < 12){
+    session.send('Buenos Dias')
 }else{
-    session.send('En que puedo ayudarle?')
+    session.send('Buenas noches')
 }
 }
 ]); 
