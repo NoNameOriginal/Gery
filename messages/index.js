@@ -35,7 +35,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .onDefault((session) => {
     session.send('Sorry, I did not understand \'%s\'.', session.message.text);
 });
-
+Holi
 bot.dialog('/', intents);    
 
 if (useEmulator) {
