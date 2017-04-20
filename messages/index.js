@@ -32,10 +32,10 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
+bot.dialog('/', intents);    
 intents.matches('builtin.intent.matriculas', builder.DialogAction.send('Deleting Alarm'));
 intents.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only create & delete alarms."));
 
-bot.dialog('/', intents);    
 
 if (useEmulator) {
     var restify = require('restify');
