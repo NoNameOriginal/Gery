@@ -32,11 +32,20 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
-var numero = Math.random();
+var numero = Math.floor(Math.random() * (10 - 1)) + 1;
 var time = new Date();
 var hora = time.getUTCHours;
 var uno = 1;
-bot.dialog('/', intents);   
+bot.dialog('/', intents);
+intents.matches('Saludos', [
+    function (session, args){
+        if(numero < 5){
+    builder.DialogAction.send('Saludos invocadores! ')
+}else{
+    builder.DialogAction.send('En que puedo ayudarle?')
+}
+}
+]); 
 intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '.concat(uno)));
 intents.onDefault(builder.DialogAction.send('Hola '.concat(hora)));
  
