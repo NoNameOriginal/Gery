@@ -34,10 +34,10 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 */
 var numero = Math.random();
 var time = new Date();
-var hora = time.getHours
+var hora = time.getHours;
 bot.dialog('/', intents);   
 intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '));
-intents.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only create & delete alarms.", hora));
+intents.onDefault(builder.DialogAction.send(hora));
  
 if (useEmulator) {
     var restify = require('restify');
