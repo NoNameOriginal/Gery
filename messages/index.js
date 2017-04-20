@@ -32,15 +32,10 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
-
-.matches('matriculas', (session, args) => {
-    session.send('En este momento no tenemos una lista de precios disponible', session.message.text);
-})
-.onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
-});
-
-bot.dialog('/', intents);    
+bot.dialog('/', intents);   
+intents.matches('matriculas', builder.DialogAction.send('Creating Alarm'));
+intents.onDefault(builder.DialogAction.send("I'm sorry I didn't understand. I can only create & delete alarms."));
+ 
 
 if (useEmulator) {
     var restify = require('restify');
