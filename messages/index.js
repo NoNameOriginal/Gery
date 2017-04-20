@@ -42,7 +42,7 @@ intents.matches('Saludos', [
     function (session){
         var numero = Math.floor(Math.random() * (10 - 1)) + 1;
         var hora = time.getHours;
-        if(hora < 12){
+        if(hora > 12){
     session.send('Buenos Dias')
 }else{
     session.send('Buenas noches')
