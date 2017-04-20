@@ -37,8 +37,8 @@ var time = new Date();
 var hora = time.getHours;
 var uno = 1;
 bot.dialog('/', intents);   
-intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: ', uno));
-intents.onDefault(builder.DialogAction.send(hora.toString, 'Hola '));
+intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '.concat(uno));
+intents.onDefault(builder.DialogAction.send(hora.toString.concat('Hola '));
  
 if (useEmulator) {
     var restify = require('restify');
