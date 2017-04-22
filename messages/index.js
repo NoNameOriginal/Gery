@@ -40,13 +40,16 @@ bot.dialog('/', intents);
 intents.matches('Saludos', [
 
     function (session){
-        var numero = Math.floor(Math.random() * (10 - 1)) + 1;
-        if(numero < 5){
-    session.send('Hola, En que puedo servirle?')
-}else{
+        var numero = Math.floor(Math.random() * (5 - 1)) + 1;
+        if(numero == 1){
+    session.send('Hola')
+    session.send('Con gusto le ayudaremos')
+}else if(numero == 2){
     session.send('En que puedo ayudarle?')
-}
-}
+} else{
+    session.send('Tiene alguna duda')
+}   
+    }
 ]); 
 intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '.concat(uno)));
 intents.onDefault(builder.DialogAction.send('Hola '.concat(hora)));
