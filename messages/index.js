@@ -44,7 +44,7 @@ intents.matches('Saludos', [
         hora = time.getHours();
         if(hora<12){
             session.send('Buenos dias');  
-        }else if(hora>=12){
+        }else if(hora>=12 && hora<6){
             session.send('Buenas tardes'); 
         }
     }
