@@ -45,10 +45,10 @@ intents.matches('Saludos', [
         if(hora<12){
             session.send('Buenos dias');  
             session.send('¿En que puedo ayudarle?');
-        }else if(hora>=12 && hora<=18){
+        }else if(hora>=12 && hora<18){
             session.send('Buenas tardes'); 
             session.send('¿En que puedo ayudarle?');
-        }else if(hora>=19 && hora<24){
+        }else if(hora>=18 && hora<24){
             session.send('Hora: '.concat(marca.getHours()));
             session.send('Buenas noches'); 
             session.send('¿En que puedo ayudarle?');
