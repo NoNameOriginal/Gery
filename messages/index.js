@@ -36,12 +36,12 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 
 var uno = 1;
 var hora = 0;
+var marca = new Date();
 bot.dialog('/', intents);
 intents.matches('Saludos', [
 
     function (session){
-        var time = new Date();
-        hora = time.getUTCHours();
+        hora = marca.getHours();
         if(hora<12){
             session.send('Buenos dias');  
             session.send('¿En que puedo ayudarle?');
@@ -49,7 +49,7 @@ intents.matches('Saludos', [
             session.send('Buenas tardes'); 
             session.send('¿En que puedo ayudarle?');
         }else if(hora>=18 && hora<24){
-            session.send('Hora'.concat(hora));
+            session.send('Hora: '.concat(hora));
             session.send('Buenas noches'); 
             session.send('¿En que puedo ayudarle?');
         }
