@@ -35,6 +35,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 
 
 var uno = 1;
+var hora = 0;
 bot.dialog('/', intents);
 intents.matches('Saludos', [
 
