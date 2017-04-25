@@ -42,9 +42,9 @@ intents.matches('Saludos', [
         var time = new Date();
         hora = time.getHours;
         if(hora>=12){
-            session.send('Pene')  
+            session.send('Pene');  
         }else{
-            session.send('no pe')  
+            session.send('no pe'); 
         }
     }
 ]); 
