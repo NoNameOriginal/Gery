@@ -41,7 +41,7 @@ intents.matches('Saludos', [
 
     function (session){
         var time = new Date();
-        hora = time.getHours();
+        hora = time.getUTCHours();
         if(hora<12){
             session.send('Buenos dias');  
             session.send('¿En que puedo ayudarle?');
