@@ -41,7 +41,7 @@ bot.dialog('/', intents);
 intents.matches('Saludos', [
 
     function (session){
-        hora = marca.getHours();
+        hora = marca.getHours()-5;
         if(hora<12){
             session.send('Buenos dias');  
             session.send('¿En que puedo ayudarle?');
@@ -49,7 +49,6 @@ intents.matches('Saludos', [
             session.send('Buenas tardes'); 
             session.send('¿En que puedo ayudarle?');
         }else if(hora>=18 && hora<24){
-            session.send('Hora: '.concat(marca.getHours()));
             session.send('Buenas noches'); 
             session.send('¿En que puedo ayudarle?');
         }
