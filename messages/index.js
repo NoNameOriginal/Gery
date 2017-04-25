@@ -45,15 +45,13 @@ intents.matches('Saludos', [
         if(hora<12){
             session.send('Buenos dias');  
             session.send('¿En que puedo ayudarle?');
-            return 0;
         }else if(hora>=12 && hora<18){
             session.send('Buenas tardes'); 
             session.send('¿En que puedo ayudarle?');
-            return 0;
         }else if(hora>=18 && hora<24){
+            session.send(hora);
             session.send('Buenas noches'); 
             session.send('¿En que puedo ayudarle?');
-            return 0;
         }
     }
 ]); 
