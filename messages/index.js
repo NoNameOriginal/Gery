@@ -49,7 +49,7 @@ intents.matches('Saludos', [
             session.send('Buenas tardes'); 
             session.send('¿En que puedo ayudarle?');
         }else if(hora>=18 && hora<24){
-            session.send('Hora'.concat(hora);
+            session.send('Hora'.concat(hora));
             session.send('Buenas noches'); 
             session.send('¿En que puedo ayudarle?');
         }
