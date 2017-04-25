@@ -41,8 +41,10 @@ intents.matches('Saludos', [
     function (session){
         var time = new Date();
         hora = time.getHours;
-        if(hora>12){
+        if(hora>=12){
             session.send('Pene')  
+        }else{
+            session.send('no pe')  
         }
     }
 ]); 
