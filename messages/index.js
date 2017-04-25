@@ -42,10 +42,15 @@ intents.matches('Saludos', [
     function (session){
         var time = new Date();
         hora = time.getHours();
-        if(hora>=12){
-            session.send('Pene');  
+        if(hora<12){
+            session.send('Buenos dias');  
+            session.send('¿En que puedo ayudarle?');  
+        }else if(hora>=12 && hora<6){
+            session.send('Buenos tardes');  
+            session.send('¿En que puedo ayudarle?'); 
         }else{
-            session.send('no pe'); 
+            session.send('Buenos noches');  
+            session.send('¿En que puedo ayudarle?'); 
         }
     }
 ]); 
