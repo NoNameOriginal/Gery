@@ -49,14 +49,55 @@ intents.matches('Saludos', [
             session.send('Buenas tardes'); 
             session.send('¿En que puedo ayudarle?');
         }else if(hora>=18 && hora<24){
+            session.
             session.send('Buenas noches'); 
             session.send('¿En que puedo ayudarle?');
         }
     }
 ]); 
+intents.matches('precios', [
+    function (session, args, next){
+    //Llamamos las entidades que nos entrega luis
+    var curso = builder.EntityRecognizer.findEntity(args.entities, 'tipoCursos');
+    var numero = builder.EntityRecognizer.findEntity(args.entities, 'builtin.number');
+    //Se guardan asi, para evitar el caso en el que no esten
+    var pregunta = session.dialogData.duda = {
+          curso: curso ? curso.entity : null,
+          numero: numero ? numero.entity : null  
+        };
+    //En caso de no estar alguna entidad, se pide
+    if(!pregunta.curso){
+        builder.Prompts.text(session, 'Por favor especifique cual curso(Ingles, Español, Frances...)');
+    }else{
+    //Pasa a la siguiente funcion
+        next();
+    }
+//Funcion encargada de verificar que este el nivel  
+},function(session, results, next){
+    
+        var pregunta = session.dialogData.duda;
+        if (results.response) {
+            pregunta.curso = results.response;
+        }
+        if(pregunta.curso && !pregunta.numero){
+             builder.Prompts.number(session, 'Por favor especifique cual nivel del curso');
+        }else{
+            next();
+        }
+
+},function (session, results) {
+    var pregunta = session.dialogData.duda;
+        if (results.response) {
+            pregunta.numero = results.response;
+        }
+        if(pregunta.curso && pregunta.numero){
+            session.send('Pos ya esta no mariquee mas, no hay no busque que no hay %s %o',pregunta.curso, pregunta.numero)
+        }
+}
+]);
 intents.matches('matriculas', builder.DialogAction.send('Las matriculas son: '.concat(uno)));
 intents.onDefault(builder.DialogAction.send('Hola '.concat(hora)));
- 
+
 if (useEmulator) {
     var restify = require('restify');
     var server = restify.createServer();
